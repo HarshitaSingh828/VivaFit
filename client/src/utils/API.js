@@ -1,7 +1,7 @@
 // get logged in user's info 
 
 export const getMe = (token) => {
-  return fetch('http://localhost:8000/api/user/me', {
+  return fetch('https://vivafit-backend-fitrack.onrender.com/api/user/me', {
     headers: {
       'Content-Type': 'application/json',
       authorization: `Bearer ${token}`,
