@@ -17,20 +17,23 @@ export default function History() {
 
   // everytime loggedIn/userdata changes, the getuserdata runs
   useEffect(() => {
+    console.log(1);
     const getUserData = async () => {
       try {
         //get token
+        console.log(4);
         const token = loggedIn ? Auth.getToken() : null;
         if (!token) return false;
 
         const response = await getMe(token)
-
+         console.log(response);
         if (!response.ok) {
           throw new Error("something went wrong!")
         }
-
+        console.log(5);
         const user = await response.json()
-
+        console.log(6);
+         console.log(user);
         // combine cardio and resistance data together
         if (user.cardio && user.resistance) {
           const cardio = user.cardio;
@@ -52,9 +55,11 @@ export default function History() {
         }
       } catch (err) { console.error(err) }
     };
+    console.log(2);
     getUserData();
+    console.log(3);
   }, [loggedIn, userData])
-
+   
   function showMoreItems() {
     setDisplayedItems(displayedItems + 6);
   }
@@ -67,7 +72,7 @@ export default function History() {
 
   return (
     <div className='history'>
-      <Header />
+      {/* <Header /> */}
       <div className="d-flex flex-column align-items-center">
         <h2 className='title'>History</h2>
         {exerciseData.length ?
@@ -120,5 +125,6 @@ export default function History() {
           )}
       </div >
     </div >
+  
   )
 }

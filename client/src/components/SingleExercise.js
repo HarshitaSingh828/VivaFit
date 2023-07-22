@@ -26,7 +26,7 @@ export default function SingleExercise() {
             const token = loggedIn ? Auth.getToken() : null;
             if (!token) return false;
 
-            // fetch cardio data by id
+            //  cardio data by id
             if (type === "cardio") {
                 try {
                     const response = await getCardioById(exerciseId, token);
