@@ -53,7 +53,7 @@ export default function Signup() {
       setShowAlert(true);
     }
   };
-
+  
   // If the user is logged in, redirect to the home page
   if (loggedIn) {
     return <Navigate to="/" />;

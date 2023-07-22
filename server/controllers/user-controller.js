@@ -20,12 +20,14 @@ module.exports = {
 
   // create a user, sign a token, and send it back to sign up page
   async createUser({ body }, res) {
+    console.log("hii");
     const user = await User.create(body);
-
+    console.log(user);
     if (!user) {
       return res.status(400).json({ message: "Something is wrong!" });
     }
     const token = signToken(user);
+    console.log(token);
     res.json({ token, user });
   },
 
